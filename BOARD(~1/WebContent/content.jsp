@@ -67,10 +67,10 @@ function writeCheck()
 	</c:forEach>
 	<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@댓글부분@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
 	<!-- 여기는 댓글창이 보여지는곳 -->
-		<table class="table table-striped table-bordered table-hover" style="text-align:center">
+	<table class="table table-striped table-bordered table-hover" style="text-align:center">
 	<caption style="text-align:left"> <br><br> 댓글 작성</caption>
 		<tr>
-			<td width="250px">아이디</td>
+			<td width="250px">아이디 (이메일)</td>
 			<td width="120px">작성일자</td>
 			<td>댓글 내용</td>
 		</tr>
@@ -79,22 +79,22 @@ function writeCheck()
 		<tr>
 			<td>${comments.id}</td>
 			<td>${comments.boarddate}</td>
-			<td>${comments.content}
-			<%-- <c:if test="${comments.id eq id}">
+			<td style="text-align-last:justify;">${comments.content}
+			<c:if test="${comments.id eq id}">
 				<%int num=Integer.parseInt(request.getParameter("num")); %>
 				<input type=button class="btn btn-danger" value="삭제하기" OnClick="window.location='commentsdelete.do?num=${comments.num}&boardnum=<%=num%>'" >
-			</c:if> --%>
+			</c:if>
 			</td>
 		</tr>
 		</c:forEach>
 	</table>
 	
 	<c:forEach items="${articleList}" var="article">
-	<form id="inform" action="/board/commentwrite.do?num=${comments.num}" method="post" style="margin-bottom:10;" onsubmit="return writeCheck();">
+	<form id="inform" action="/board/commentwrite.do?num=${article.num}" method="post" style="margin-bottom:10;" onsubmit="return writeCheck();">
 		<table class="table table-striped table-bordered table-hover" style="text-align:left; ">
 			<tr>
 				<td width="250px">${id}</td>
-				<td><input type="text" name="comment" placeholder="내용을 입력하세요" size="100"></td>
+				<td><input type="text" id="comment" name="comment" placeholder="내용을 입력하세요" size="100"></td>
 				<td><input type=submit class="btn btn-success" value="등록" Onclick="javascript:writeCheck();"></td>
 			</tr>	
 		</table>

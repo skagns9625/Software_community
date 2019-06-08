@@ -26,7 +26,7 @@ public class CommentWriteAction implements CommandAction {
 		    	request.setCharacterEncoding("euc-kr");
 		    	//??ëª©ê³¼ ?´ì?©ì?? ???? ë°??? ë³????? ????
 		    	
-		    	String content = request.getParameter("content");
+		    	String comment = request.getParameter("comment");
 		    	
 		    	String id=null;
 		    	String query=null;
@@ -55,7 +55,7 @@ public class CommentWriteAction implements CommandAction {
 		      		pstmt = conn.prepareStatement(      				
 		      				"insert into comment1 values(NULL,?,?,now())");
 		    				pstmt.setString(1, id);
-		    				pstmt.setString(2, content);
+		    				pstmt.setString(2, comment);
 		    				//ì¿¼ë¦¬ ?¤í??
 		    				pstmt.executeUpdate();
 		    			
@@ -68,10 +68,6 @@ public class CommentWriteAction implements CommandAction {
 		    		if(pstmt != null) try{pstmt.close();} catch(SQLException ex){}
 		    		if(conn != null) try{conn.close();} catch(SQLException ex){}
 		    		}
-		    
-
-		    
-
 
 
 		     //   return "write.jsp";

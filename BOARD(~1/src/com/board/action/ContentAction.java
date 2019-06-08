@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.board.beans.board;
- 
+import com.board.beans.comment;
 import com.board.controller.CommandAction;
  
 public class ContentAction implements CommandAction {
@@ -30,10 +30,8 @@ public class ContentAction implements CommandAction {
     	Connection conn = null;
     	Statement stmt = null;    	
     	ResultSet rs = null;   
-    	
-    
     	int score = 0;
-    	
+    	int num2=0;
     	try {
     		
     		HttpSession session = request.getSession();
@@ -56,7 +54,6 @@ public class ContentAction implements CommandAction {
     		stmt = conn.createStatement();    		
     		rs = stmt.executeQuery(query);    		
     		
-    	
     		ArrayList<board> articleList = new ArrayList<board>();
     		
     		while(rs.next()){
@@ -73,8 +70,6 @@ public class ContentAction implements CommandAction {
     			articleList.add(article);
     		}
     		request.setAttribute("articleList",articleList);
-    		
-    		
     		String query2 =  "UPDATE board1 SET score='" + score +    						
 					"' WHERE num=" + num;    		
     		stmt.executeUpdate(query2); 

@@ -53,7 +53,7 @@ public class SelectCategoryAction implements CommandAction {
 			String dbPass = "root";
 			conn = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
 			stmt = conn.createStatement();    	
-			 query = "SELECT * FROM board1 WHERE num = (SELECT max(num) FROM board1);";					
+			query = "SELECT * FROM board1 WHERE num = (SELECT max(num) FROM board1);";					
 			rs = stmt.executeQuery(query);
 			//ArrayList<board> articleList = new ArrayList<board>();    		
     		int article = 0;

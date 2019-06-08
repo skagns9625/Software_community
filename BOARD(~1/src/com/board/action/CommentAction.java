@@ -25,7 +25,7 @@ public class CommentAction implements CommandAction {
  
     	Class.forName("com.mysql.cj.jdbc.Driver");
     	
-    	int num = Integer.parseInt(request.getParameter("num"));
+    	int num2 = Integer.parseInt(request.getParameter("num2"));
     	Connection conn = null;
     	Statement stmt = null;    	
     	ResultSet rs = null;
@@ -45,7 +45,7 @@ public class CommentAction implements CommandAction {
     		String dbUser = "root";
     		String dbPass = "root";
     		
-    		String query = "select * from comment1 where num = "+num;
+    		String query = "select * from comment1 where num = "+num2;
     		
     		conn = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
     		
@@ -57,7 +57,7 @@ public class CommentAction implements CommandAction {
     		
     		while(rs.next()){
     			comment comments = new comment();
-    			comments.setNum(rs.getInt("num"));    		
+    			comments.setNum(rs.getInt("num2"));    		
     			comments.setId(rs.getString("id"));
     			comments.setContent(rs.getString("content"));
     			comments.setBoarddate(rs.getString("boarddate"));
