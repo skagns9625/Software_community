@@ -31,7 +31,6 @@ public class ContentAction implements CommandAction {
     	Statement stmt = null;    	
     	ResultSet rs = null;   
     	int score = 0;
-    	int num2=0;
     	try {
     		
     		HttpSession session = request.getSession();

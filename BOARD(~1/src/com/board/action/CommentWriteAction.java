@@ -25,7 +25,7 @@ public class CommentWriteAction implements CommandAction {
 		    	
 		    	request.setCharacterEncoding("euc-kr");
 		    	//??ëª©ê³¼ ?´ì?©ì?? ???? ë°??? ë³????? ????
-		    	
+		    	int num;
 		    	String comment = request.getParameter("comment");
 		    	
 		    	String id=null;
@@ -35,7 +35,7 @@ public class CommentWriteAction implements CommandAction {
 		    	Connection conn = null;
 		    	PreparedStatement pstmt = null;
 		    	ResultSet rs=null;
-		    	
+		    	num=Integer.parseInt(request.getParameter("num"));
 		    	try{
 		    		HttpSession session = request.getSession();
 		    		//?¸ì???? ?½ì?? ë¡?ê·¸ì?? ????ê°? ????ë©? ë¡?ê·¸ì?? ì°½ì?¼ë? ?´ë??
@@ -53,7 +53,7 @@ public class CommentWriteAction implements CommandAction {
 					conn = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
 					
 		      		pstmt = conn.prepareStatement(      				
-		      				"insert into comment1 values(NULL,?,?,now())");
+		      				"insert into comment1 values("+num+",?,?,now())");
 		    				pstmt.setString(1, id);
 		    				pstmt.setString(2, comment);
 		    				//ì¿¼ë¦¬ ?¤í??
