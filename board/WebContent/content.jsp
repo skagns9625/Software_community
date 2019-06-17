@@ -17,7 +17,7 @@
 	</div>
 	<c:forEach items="${articleList}" var="article">
 	<table class="table table-striped table-bordered table-hover" style="text-align:center">
-		<caption style="text-align:center">게시판 내용</caption>
+		<caption style="text-align:center">게시판 내용123</caption>
 		<tr>
 			<td>제목</td>
 			<td style="text-align:left">${article.subject}</td>			
